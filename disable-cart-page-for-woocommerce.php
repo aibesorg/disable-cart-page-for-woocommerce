@@ -50,7 +50,7 @@ add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), function( $lin
 
 // Add checks and notices
 add_action( 'admin_notices', function() {
-	if ( ! is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
+	if ( ! is_plugin_active( 'woocommerce/woocommerce.php' ) && !defined('WC_PLUGIN_FILE') ) {
 		?><div class="notice notice-error"><p><?php _e( 'Warning! To use Disable cart page for WooCommerce it need WooCommerce is installed and active.', 'wcdcp' ); ?></p></div><?php
 	}
 } );
